@@ -53,8 +53,8 @@ public class ContactList<Person> implements ContactAdt {
 
 
     @Override
-    public boolean add(Person personData) {
-        add(size, personData);
+    public boolean add(Object person) {
+        add(size, (Person) person);
         return true;
     }
 
