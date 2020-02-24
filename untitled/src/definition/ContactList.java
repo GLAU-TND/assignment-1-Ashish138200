@@ -23,6 +23,25 @@ public class ContactList<Person> implements ContactAdt {
         personNode.next = new Node<>(personData, personNode.next);
     }
 
+    public void add(int index, Person personData) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException(Integer.toString(index));
+        } else if (size == 0) {
+            addFirst(personData);
+        } else {
+            Node<Person> node = getNode(index - 1);
+            addAfter(node, personData);
+        }
+    }
+
+    private Node<Person> getNode(int index) {
+        Node<Person> response = head;
+        for (int i = 0; i < index; i++) {
+            response = response.getNext();
+        }
+        return response;
+    }
+
 
 
     private int counter;
