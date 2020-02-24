@@ -9,6 +9,22 @@ public class ContactList<Person> implements ContactAdt {
     ArrayList<String> arrayOfFirstName = new ArrayList<>();
     private Node<Person> head;
     private int size = 0;
+
+    public int getSize() {
+        return size;
+    }
+
+    private void addFirst(Person personData) {
+        head = new Node<>(personData, head);
+        size++;
+    }
+
+    private void addAfter(Node<Person> personNode, Person personData) {
+        personNode.next = new Node<>(personData, personNode.next);
+    }
+
+
+
     private int counter;
 
     @Override
